@@ -1,0 +1,31 @@
+% License:
+% This code is created by Mohamed Ezz El-Ragyal.
+% The user is granted permission to use and modify this code for educational 
+% and personal purposes. Commercial use is strictly prohibited without 
+% explicit permission from the author. 
+% Contact: Mohamed Ezz El-Ragyal for any inquiries or permissions.
+
+% Initialization
+V0 = 1; % Initial voltage
+Z0 = 1; % Characteristic impedance
+beta_l = linspace(0, 2*pi, 500); % Beta * l values (phase in radians)
+
+% Current distribution
+I_l = abs((2 * V0 / Z0) * sin(beta_l)); % Calculate current distribution
+subplot(2,1,1); % Create first subplot for current
+plot(beta_l, I_l, 'b', 'LineWidth', 1.5); % Plot current distribution
+title('Current Distribution along O.C T.L.', 'FontWeight', 'bold');
+ylabel('|I(\beta l)|', 'FontWeight', 'bold');
+xticks([0 pi 2*pi]); % Set custom x-axis ticks
+xticklabels({'0', '\pi', '2\pi'}); % Label x-axis with symbols
+grid on; % Add grid for better visualization
+
+% Voltage distribution
+V_l = abs(2 * V0 * cos(beta_l)); % Calculate voltage distribution
+subplot(2,1,2); % Create second subplot for voltage
+plot(beta_l, V_l, 'r', 'LineWidth', 1.5); % Plot voltage distribution
+title('Voltage Distribution along O.C T.L.', 'FontWeight', 'bold');
+ylabel('|V(\beta l)|', 'FontWeight', 'bold');
+xticks([0 pi 2*pi]); % Set custom x-axis ticks
+xticklabels({'0', '\pi', '2\pi'}); % Label x-axis with symbols
+grid on; % Add grid for better visualization
